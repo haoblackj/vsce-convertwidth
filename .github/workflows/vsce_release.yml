@@ -3,7 +3,7 @@ name: "cd"
 on:
   push:
     branches:
-      - release
+      - master
 
 jobs:
   cd:
@@ -16,6 +16,8 @@ jobs:
       with:
         node-version: 10.x
     - run: npm install
+    - name: Version Number Increment
+    - run: npm version patch
     - name: Publish
       run: npm run deploy
       env:
