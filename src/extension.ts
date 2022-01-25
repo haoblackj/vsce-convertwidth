@@ -40,6 +40,12 @@ export function activate(context: ExtensionContext) {
             offsetCharCode(window.activeTextEditor, /[！？]/g, -65248);
         }
     });
+    // ひと桁の半角数字を全角数字に変換
+    commands.registerCommand('extension.one-digit-narrowNumber', () => {
+      if (window.activeTextEditor) {
+          offsetCharCode(window.activeTextEditor, /(?<![,-9－])([0-9])(?![,-9－])/g, 65248);
+      }
+  });
 }
 
 // 文字単位の変換
