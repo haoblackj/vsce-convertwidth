@@ -170,10 +170,14 @@
         "type": "git",
         "url": "https://github.com/haoblackj/vsce-convertwidth.git"
     },
-    "release":{
-      "branches": [
-        "master"
-      ]
+    "release": {
+        "branches": [
+            "master"
+        ],
+    "verifyConditions": [
+      "semantic-release-vsce",
+      "@semantic-release/github"
+    ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -181,12 +185,25 @@
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test",
-        "deploy": "vsce publish --no-yarn"
+        "deploy": "vsce publish --no-yarn",
+        "semantic-release": "semantic-release"
     },
+    "prepare": {
+      "path": "semantic-release-vsce",
+      "packageVsix": true
+    },
+    "publish": [
+      "semantic-release-vsce",
+      {
+        "path": "@semantic-release/github",
+        "assets": "*.vsix"
+      }
+    ],
     "devDependencies": {
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.70",
         "semantic-release": "^19.0.2",
+        "semantic-release-vsce": "^5.0.1",
         "tslint": "^5.11.0",
         "typescript": "^2.9.2",
         "vsce": "^2.6.3",
