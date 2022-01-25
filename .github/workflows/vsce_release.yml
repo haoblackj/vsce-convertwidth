@@ -1,9 +1,10 @@
 name: "Continuous Deploy"
 
 on:
-  push:
+  pull_request:
     branches:
       - master
+    types: [closed]
 
 jobs:
   tag:
