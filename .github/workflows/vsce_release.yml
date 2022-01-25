@@ -1,26 +1,25 @@
-name: "Auto Add Tag"
-
+name: Release
 on:
-  pull_request:
+  push:
     branches:
       - master
-    types: [closed]
-
 jobs:
-  tag:
-    name: Add release tag
-    runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'release/next'
+  release:
+    name: Release
+    runs-on: ubuntu-18.04
     steps:
-      - name: Get next version
-        uses: technote-space/get-next-version-action@v1
-      - uses: actions/github-script@0.4.0
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: `refs/tags/${process.env.NEXT_VERSION}`,
-              sha: context.sha
-            })
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: npm ci
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

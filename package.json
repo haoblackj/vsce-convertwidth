@@ -170,10 +170,19 @@
         "type": "git",
         "url": "https://github.com/haoblackj/vsce-convertwidth.git"
     },
-    "release":{
-      "branches": [
-        "master"
-      ]
+    "release": {
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            "@semantic-release/github"
+        ],
+        "branches": [
+            "master"
+        ],
+        "verifyConditions": [
+            "semantic-release-vsce",
+            "@semantic-release/github"
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -181,12 +190,38 @@
         "watch": "tsc -watch -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "npm run compile && node ./node_modules/vscode/bin/test",
-        "deploy": "vsce publish --no-yarn"
+        "deploy": "vsce publish --no-yarn",
+        "semantic-release": "semantic-release"
+    },
+    "prepare": {
+        "path": "semantic-release-vsce",
+        "packageVsix": true
+    },
+    "publish": [
+        "semantic-release-vsce",
+        {
+            "path": "@semantic-release/github",
+            "assets": "*.vsix"
+        }
+    ],
+    "commitlint": {
+      "extends": [
+        "@commitlint/config-conventional"
+      ]
+    },
+    "husky": {
+      "hooks": {
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
     },
     "devDependencies": {
+        "@commitlint/cli": "^16.1.0",
+        "@commitlint/config-conventional": "^16.0.0",
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.70",
+        "husky": "^7.0.4",
         "semantic-release": "^19.0.2",
+        "semantic-release-vsce": "^5.0.1",
         "tslint": "^5.11.0",
         "typescript": "^2.9.2",
         "vsce": "^2.6.3",
