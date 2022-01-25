@@ -437,6 +437,16 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
+"@semantic-release/changelog@^6.0.1":
+  "integrity" "sha512-FT+tAGdWHr0RCM3EpWegWnvXJ05LQtBkQUaQRIExONoXjVjLuOILNm4DEKNaV+GAQyJjbLRVs57ti//GypH6PA=="
+  "resolved" "https://registry.npmjs.org/@semantic-release/changelog/-/changelog-6.0.1.tgz"
+  "version" "6.0.1"
+  dependencies:
+    "@semantic-release/error" "^3.0.0"
+    "aggregate-error" "^3.0.0"
+    "fs-extra" "^9.0.0"
+    "lodash" "^4.17.4"
+
 "@semantic-release/commit-analyzer@^9.0.2":
   "integrity" "sha512-E+dr6L+xIHZkX4zNMe6Rnwg4YQrWNXK+rNsvwOPpdFppvZO1olE2fIgWhv89TkQErygevbjsZFSIxp+u6w2e5g=="
   "resolved" "https://registry.npmjs.org/@semantic-release/commit-analyzer/-/commit-analyzer-9.0.2.tgz"
@@ -760,6 +770,11 @@
 
 "asap@^2.0.0":
   "version" "2.0.6"
+
+"at-least-node@^1.0.0":
+  "integrity" "sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg=="
+  "resolved" "https://registry.npmjs.org/at-least-node/-/at-least-node-1.0.0.tgz"
+  "version" "1.0.0"
 
 "azure-devops-node-api@^11.0.1":
   "integrity" "sha512-6/2YZuf+lJzJLrjXNYEA5RXAkMCb8j/4VcHD0qJQRsgG/KsRMYo0HgDh0by1FGHyZkQWY5LmQyJqCwRVUB3Y7Q=="
@@ -1727,6 +1742,16 @@
   "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-10.0.0.tgz"
   "version" "10.0.0"
   dependencies:
+    "graceful-fs" "^4.2.0"
+    "jsonfile" "^6.0.1"
+    "universalify" "^2.0.0"
+
+"fs-extra@^9.0.0":
+  "integrity" "sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ=="
+  "resolved" "https://registry.npmjs.org/fs-extra/-/fs-extra-9.1.0.tgz"
+  "version" "9.1.0"
+  dependencies:
+    "at-least-node" "^1.0.0"
     "graceful-fs" "^4.2.0"
     "jsonfile" "^6.0.1"
     "universalify" "^2.0.0"
@@ -3774,7 +3799,7 @@
     "ovsx" "^0.3.0"
     "vsce" "^2.6.3"
 
-"semantic-release@^19.0.2", "semantic-release@>=18", "semantic-release@>=18.0.0-beta.1", "semantic-release@>=19.0.0":
+"semantic-release@^19.0.2", "semantic-release@>=18", "semantic-release@>=18.0.0", "semantic-release@>=18.0.0-beta.1", "semantic-release@>=19.0.0":
   "integrity" "sha512-7tPonjZxukKECmClhsfyMKDt0GR38feIC2HxgyYaBi+9tDySBLjK/zYDLhh+m6yjnHIJa9eBTKYE7k63ZQcYbw=="
   "resolved" "https://registry.npmjs.org/semantic-release/-/semantic-release-19.0.2.tgz"
   "version" "19.0.2"

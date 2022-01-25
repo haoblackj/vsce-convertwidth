@@ -2,6 +2,7 @@
     "name": "convertwidth4novelwriter",
     "displayName": "Convert Width for novel writer",
     "description": "半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。",
+    "version": "0.4.2",
     "publisher": "haoblackj",
     "license": "MIT",
     "bugs": {
@@ -13,6 +14,7 @@
     "categories": [
         "Other"
     ],
+    "private": true,
     "icon": "images/icon.png",
     "activationEvents": [
         "onCommand:extension.widenAlphabet",
@@ -203,6 +205,13 @@
             "assets": "*.vsix"
         }
     ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/changelog",
+        "@semantic-release/npm",
+        "@semantic-release/git"
+    ],
     "commitlint": {
         "extends": [
             "@commitlint/config-conventional"
@@ -216,6 +225,8 @@
     "devDependencies": {
         "@commitlint/cli": "^16.1.0",
         "@commitlint/config-conventional": "^16.0.0",
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/npm": "^9.0.0",
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.70",
         "commitizen": "^4.2.4",
