@@ -1,8 +1,8 @@
 {
-    "name": "convertwidth",
-    "displayName": "Convert Width",
+    "name": "convertwidth4novelwriter",
+    "displayName": "Convert Width for novel writer",
     "description": "半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "publisher": "haoblackj",
     "license": "MIT",
     "bugs": {
