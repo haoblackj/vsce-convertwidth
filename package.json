@@ -6,7 +6,7 @@
     "publisher": "haoblackj",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/haoblackj/vsce-convertwidth/issues"
+        "url": "https://github.com/haoblackj/vsce-convertwidth/issues"
     },
     "engines": {
         "vscode": "^1.22.0"
