@@ -21,7 +21,8 @@
         "onCommand:extension.widenPunctuation",
         "onCommand:extension.narrowAlphabet",
         "onCommand:extension.narrowNumber",
-        "onCommand:extension.narrowPunctuation"
+        "onCommand:extension.narrowPunctuation",
+        "onCommand:extension.one-digit-narrowNumber"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -49,6 +50,10 @@
             {
                 "command": "extension.narrowPunctuation",
                 "title": ">?< 全角記号(!?)を半角に変換"
+            },
+            {
+                "command": "extension.one-digit-narrowNumber",
+                "title": "<!> ひと桁の半角数字を全角数字に変換"
             }
         ],
         "menus": {
@@ -84,6 +89,11 @@
                     "group": "navigation"
                 },
                 {
+                    "when": "resourceLangId == markdown",
+                    "command": "extension.one-digit-narrowNumber",
+                    "group": "navigation"
+                },
+                {
                     "when": "resourceLangId == plaintext",
                     "command": "extension.widenAlphabet",
                     "group": "navigation"
@@ -114,6 +124,11 @@
                     "group": "navigation"
                 },
                 {
+                    "when": "resourceLangId == plaintext",
+                    "command": "extension.one-digit-narrowNumber",
+                    "group": "navigation"
+                },
+                {
                     "when": "resourceLangId == novel",
                     "command": "extension.widenAlphabet",
                     "group": "navigation"
@@ -141,6 +156,11 @@
                 {
                     "when": "resourceLangId == novel",
                     "command": "extension.narrowPunctuation",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceLangId == novel",
+                    "command": "extension.one-digit-narrowNumber",
                     "group": "navigation"
                 }
             ]
