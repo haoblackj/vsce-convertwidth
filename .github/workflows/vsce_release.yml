@@ -1,4 +1,4 @@
-name: "cd"
+name: "Continuous Deploy"
 
 on:
   push:
@@ -6,6 +6,23 @@ on:
       - master
 
 jobs:
+  tag:
+    name: Add release tag
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'release/next'
+    steps:
+      - name: Get next version
+        uses: technote-space/get-next-version-action@v1
+      - uses: actions/github-script@0.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${process.env.NEXT_VERSION}`,
+              sha: context.sha
+            })
   cd:
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +34,7 @@ jobs:
         node-version: 10.x
     - run: npm install
     - name: Version Number Increment
-    - run: npm version patch
+    - run: npm version from-git
     - name: Publish
       run: npm run deploy
       env:
