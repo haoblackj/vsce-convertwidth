@@ -1,42 +1,42 @@
-name: "cd"
+name: "Continuous Deploy"
 
 on:
-  push:
+  pull_request:
     branches:
-      - release
+      - master
+    types: [closed]
 
 jobs:
+  tag:
+    name: Add release tag
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'release/next'
+    steps:
+      - name: Get next version
+        uses: technote-space/get-next-version-action@v1
+      - uses: actions/github-script@0.4.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `refs/tags/${process.env.NEXT_VERSION}`,
+              sha: context.sha
+            })
   cd:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout to branch
-        uses: actions/checkout@v2
-
-      - name: Setup node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ secrets.NODE_VERSION }}
-
-      - name: Install packages
-        run: npm ci
-
-      - name: Calculate version
-        id: calculateVersion
-        run: |
-          APP_VERSION=`cat package.json | jq ".version" -M | sed 's/\"//g'`
-          echo "::set-output name=AppVersion::$APP_VERSION"
-          echo "app version = v$APP_VERSION"
-      - name: Build VSIX package
-        run: npm run build -- -o custom-profiles-for-vscode.v${{ steps.calculateVersion.outputs.AppVersion }}.vsix
-
-      - name: Publish extension package
-        env:
-          VSCODE_MARKETPLACE_TOKEN: ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}
-        run: npm run vsce -- publish -p $VSCODE_MARKETPLACE_TOKEN
-
-      - uses: actions/upload-artifact@v2
-        name: Upload artifact
-        with:
-          name: custom-profiles-for-vscode.v${{ steps.calculateVersion.outputs.AppVersion }}.vsix
-          path: custom-profiles-for-vscode.v${{ steps.calculateVersion.outputs.AppVersion }}.vsix
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    - run: npm install
+    - name: Version Number Increment
+    - run: npm version from-git
+    - name: Publish
+      run: npm run deploy
+      env:
+        VSCE_PAT: ${{ secrets.VSCODE_MARKETPLACE_TOKEN }}
