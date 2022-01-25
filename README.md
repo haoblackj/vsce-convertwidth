@@ -1,6 +1,6 @@
-VSCE - ConvertWidth README
+VSCE - ConvertWidth for novel-writer README
 =========================
-
+この拡張機能は、[8amjp](https://github.com/8amjp)様の[ConvertWidth](https://marketplace.visualstudio.com/items?itemName=8amjp.convertwidth)からフォークし作成しております。  
 半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。
 
 ## Command
@@ -24,7 +24,6 @@ VSCE - ConvertWidth README
 全角の感嘆符(！)、疑問符(？)を半角に変換します。
 
 コマンドは、コマンドパレットを開いて(<kbd><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></kbd>)入力する他に、
-エディタ内で右クリックして表示されるコンテクストメニューから実行することもできます。
-また、コマンドが有効になるのは、言語モードがMarkdown形式、プレーンテキスト形式またはnovel形式の場合のみです。
-
+エディタ内で右クリックして表示されるコンテクストメニューから実行することもできます。  
+また、コマンドが有効になるのは、言語モードがMarkdown形式、プレーンテキスト形式またはnovel形式の場合のみです。  
 (novel形式は[novel-writer](https://marketplace.visualstudio.com/items?itemName=TaiyoFujii.novel-writer)からインストールされる言語機能です)
