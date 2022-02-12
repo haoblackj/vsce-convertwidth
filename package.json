@@ -55,6 +55,10 @@
             {
                 "command": "extension.one-digit-narrowNumber",
                 "title": "<!> ひと桁の半角数字を全角数字に変換"
+            },
+            {
+                "command": "extension.one-digit-narrowNumberAndPunctuation",
+                "title": "<!?> ひと桁の半角数字・記号を全角数字・記号に変換"
             }
         ],
         "menus": {
@@ -95,6 +99,11 @@
                     "group": "navigation"
                 },
                 {
+                    "when": "resourceLangId == markdown",
+                    "command": "extension.one-digit-narrowNumberAndPunctuation",
+                    "group": "navigation"
+                },
+                {
                     "when": "resourceLangId == plaintext",
                     "command": "extension.widenAlphabet",
                     "group": "navigation"
@@ -130,6 +139,11 @@
                     "group": "navigation"
                 },
                 {
+                    "when": "resourceLangId == plaintext",
+                    "command": "extension.one-digit-narrowNumberAndPunctuation",
+                    "group": "navigation"
+                },
+                {
                     "when": "resourceLangId == novel",
                     "command": "extension.widenAlphabet",
                     "group": "navigation"
@@ -162,6 +176,11 @@
                 {
                     "when": "resourceLangId == novel",
                     "command": "extension.one-digit-narrowNumber",
+                    "group": "navigation"
+                },
+                {
+                    "when": "resourceLangId == novel",
+                    "command": "extension.one-digit-narrowNumberAndPunctuation",
                     "group": "navigation"
                 }
             ]
@@ -170,21 +189,6 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/haoblackj/vsce-convertwidth.git"
-    },
-    "release": {
-        "plugins": [
-            "@semantic-release/commit-analyzer",
-            "@semantic-release/release-notes-generator",
-            "semantic-release-vsce",
-            "@semantic-release/github"
-        ],
-        "branches": [
-            "master"
-        ],
-        "verifyConditions": [
-            "semantic-release-vsce",
-            "@semantic-release/github"
-        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
@@ -195,17 +199,6 @@
         "deploy": "vsce publish --no-yarn",
         "semantic-release": "semantic-release"
     },
-    "prepare": {
-        "path": "semantic-release-vsce",
-        "packageVsix": true
-    },
-    "publish": [
-        "semantic-release-vsce",
-        {
-            "path": "@semantic-release/github",
-            "assets": "*.vsix"
-        }
-    ],
     "plugins": [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
