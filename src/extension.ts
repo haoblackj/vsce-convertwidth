@@ -46,6 +46,13 @@ export function activate(context: ExtensionContext) {
           offsetCharCode(window.activeTextEditor, /(?<![,-9－])([0-9])(?![,-9－])/g, 65248);
       }
   });
+    // ひと桁の半角数字・記号を全角数字・記号に変換
+    commands.registerCommand('extension.one-digit-narrowNumberAndPunctuation', () => {
+      if (window.activeTextEditor) {
+          offsetCharCode(window.activeTextEditor, /(?<![,-9－])([0-9])(?![,-9－])/g, 65248);
+          offsetCharCode(window.activeTextEditor, /((?<![!?])([!?])(?![!?]))/g, 65248);
+      }
+  });
 }
 
 // 文字単位の変換
