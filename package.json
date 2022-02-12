@@ -1,266 +1,269 @@
 {
-    "name": "convertwidth4novelwriter",
-    "displayName": "Convert Width for novel writer",
-    "description": "半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。",
-    "version": "0.0.0-semantic-release",
-    "publisher": "haoblackj",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/haoblackj/vsce-convertwidth/issues"
-    },
-    "engines": {
-        "vscode": "^1.22.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "private": true,
-    "icon": "images/icon.png",
-    "activationEvents": [
-        "onCommand:extension.widenAlphabet",
-        "onCommand:extension.widenNumber",
-        "onCommand:extension.widenPunctuation",
-        "onCommand:extension.narrowAlphabet",
-        "onCommand:extension.narrowNumber",
-        "onCommand:extension.narrowPunctuation",
-        "onCommand:extension.one-digit-narrowNumber"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.widenAlphabet",
-                "title": "<A> 半角英字及び記号(&,.)を全角に変換"
-            },
-            {
-                "command": "extension.widenNumber",
-                "title": "<1> 半角数字を全角に変換"
-            },
-            {
-                "command": "extension.widenPunctuation",
-                "title": "<?> 半角記号(!?)を全角に変換"
-            },
-            {
-                "command": "extension.narrowAlphabet",
-                "title": ">A< 全角英字及び記号(&,.)を半角に変換"
-            },
-            {
-                "command": "extension.narrowNumber",
-                "title": ">1< 全角数字を半角数字に変換"
-            },
-            {
-                "command": "extension.narrowPunctuation",
-                "title": ">?< 全角記号(!?)を半角に変換"
-            },
-            {
-                "command": "extension.one-digit-narrowNumber",
-                "title": "<!> ひと桁の半角数字を全角数字に変換"
-            },
-            {
-                "command": "extension.one-digit-narrowNumberAndPunctuation",
-                "title": "<!?> ひと桁の半角数字・記号を全角数字・記号に変換"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.widenAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.widenNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.widenPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.narrowAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.narrowPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.one-digit-narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == markdown",
-                    "command": "extension.one-digit-narrowNumberAndPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.widenAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.widenNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.widenPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.narrowAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.narrowPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.one-digit-narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == plaintext",
-                    "command": "extension.one-digit-narrowNumberAndPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.widenAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.widenNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.widenPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.narrowAlphabet",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.narrowPunctuation",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.one-digit-narrowNumber",
-                    "group": "navigation"
-                },
-                {
-                    "when": "resourceLangId == novel",
-                    "command": "extension.one-digit-narrowNumberAndPunctuation",
-                    "group": "navigation"
-                }
-            ]
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/haoblackj/vsce-convertwidth.git"
-    },
-    "release": {
-      "plugins": [
-          "@semantic-release/commit-analyzer",
-          "semantic-release-vsce",
-          "@semantic-release/github"
-      ],
-      "branches": [
-          "master"
-      ],
-      "verifyConditions": [
-          "semantic-release-vsce",
-          "@semantic-release/github"
-      ]
+  "name": "convertwidth4novelwriter",
+  "displayName": "Convert Width for novel writer",
+  "description": "半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。",
+  "version": "0.0.0-semantic-release",
+  "publisher": "haoblackj",
+  "license": "MIT",
+  "bugs": {
+      "url": "https://github.com/haoblackj/vsce-convertwidth/issues"
   },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test",
-        "deploy": "vsce publish --no-yarn",
-        "semantic-release": "semantic-release"
-    },
-    "prepare": {
-      "path": "semantic-release-vsce",
-      "packageVsix": true
+  "engines": {
+      "vscode": "^1.22.0"
   },
-  "publish": [
-      "semantic-release-vsce",
-      {
-          "path": "@semantic-release/github",
-          "assets": "*.vsix"
-      }
+  "categories": [
+      "Other"
   ],
+  "private": true,
+  "icon": "images/icon.png",
+  "activationEvents": [
+      "onCommand:extension.widenAlphabet",
+      "onCommand:extension.widenNumber",
+      "onCommand:extension.widenPunctuation",
+      "onCommand:extension.narrowAlphabet",
+      "onCommand:extension.narrowNumber",
+      "onCommand:extension.narrowPunctuation",
+      "onCommand:extension.one-digit-narrowNumber",
+      "onCommand:extension.one-digit-narrowNumberAndPunctuation"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+      "commands": [
+          {
+              "command": "extension.widenAlphabet",
+              "title": "<A> 半角英字及び記号(&,.)を全角に変換"
+          },
+          {
+              "command": "extension.widenNumber",
+              "title": "<1> 半角数字を全角に変換"
+          },
+          {
+              "command": "extension.widenPunctuation",
+              "title": "<?> 半角記号(!?)を全角に変換"
+          },
+          {
+              "command": "extension.narrowAlphabet",
+              "title": ">A< 全角英字及び記号(&,.)を半角に変換"
+          },
+          {
+              "command": "extension.narrowNumber",
+              "title": ">1< 全角数字を半角数字に変換"
+          },
+          {
+              "command": "extension.narrowPunctuation",
+              "title": ">?< 全角記号(!?)を半角に変換"
+          },
+          {
+              "command": "extension.one-digit-narrowNumber",
+              "title": "<!> ひと桁の半角数字を全角数字に変換"
+          },
+          {
+              "command": "extension.one-digit-narrowNumberAndPunctuation",
+              "title": "<!?> ひと桁の半角数字・記号を全角数字・記号に変換"
+          }
+      ],
+      "menus": {
+          "editor/context": [
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.widenAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.widenNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.widenPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.narrowAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.narrowPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.one-digit-narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == markdown",
+                  "command": "extension.one-digit-narrowNumberAndPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.widenAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.widenNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.widenPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.narrowAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.narrowPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.one-digit-narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == plaintext",
+                  "command": "extension.one-digit-narrowNumberAndPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.widenAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.widenNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.widenPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.narrowAlphabet",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.narrowPunctuation",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.one-digit-narrowNumber",
+                  "group": "navigation"
+              },
+              {
+                  "when": "resourceLangId == novel",
+                  "command": "extension.one-digit-narrowNumberAndPunctuation",
+                  "group": "navigation"
+              }
+          ]
+      }
+  },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/haoblackj/vsce-convertwidth.git"
+  },
+  "release": {
     "plugins": [
         "@semantic-release/commit-analyzer",
-        "@semantic-release/changelog",
-        "@semantic-release/npm",
-        "@semantic-release/git"
+        "@semantic-release/release-notes-generator",
+        "semantic-release-vsce",
+        "@semantic-release/github"
     ],
-    "commitlint": {
-        "extends": [
-            "@commitlint/config-conventional"
-        ]
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^16.1.0",
-        "@commitlint/config-conventional": "^16.0.0",
-        "@semantic-release/changelog": "^6.0.1",
-        "@semantic-release/npm": "^9.0.0",
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.70",
-        "commitizen": "^4.2.4",
-        "cz-conventional-changelog": "^3.3.0",
-        "cz-conventional-changelog-ja": "^0.0.2",
-        "husky": "^3.1.0",
-        "semantic-release": "^19.0.2",
-        "semantic-release-vsce": "^5.0.1",
-        "tslint": "^5.11.0",
-        "typescript": "^2.9.2",
-        "vsce": "^2.6.3",
-        "vscode": "^1.1.21"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+    "branches": [
+        "master"
+    ],
+    "verifyConditions": [
+        "semantic-release-vsce",
+        "@semantic-release/github"
+    ]
+},
+  "scripts": {
+      "vscode:prepublish": "npm run compile",
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./",
+      "postinstall": "node ./node_modules/vscode/bin/install",
+      "test": "npm run compile && node ./node_modules/vscode/bin/test",
+      "deploy": "vsce publish --no-yarn",
+      "semantic-release": "semantic-release"
+  },
+  "prepare": {
+    "path": "semantic-release-vsce",
+    "packageVsix": true
+},
+"publish": [
+    "semantic-release-vsce",
+    {
+        "path": "@semantic-release/github",
+        "assets": "*.vsix"
     }
+],
+  "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+  ],
+  "commitlint": {
+      "extends": [
+          "@commitlint/config-conventional"
+      ]
+  },
+  "husky": {
+      "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
+  },
+  "devDependencies": {
+      "@commitlint/cli": "^16.1.0",
+      "@commitlint/config-conventional": "^16.0.0",
+      "@semantic-release/changelog": "^6.0.1",
+      "@semantic-release/npm": "^9.0.0",
+      "@types/mocha": "^2.2.42",
+      "@types/node": "^7.0.70",
+      "commitizen": "^4.2.4",
+      "cz-conventional-changelog": "^3.3.0",
+      "cz-conventional-changelog-ja": "^0.0.2",
+      "husky": "^3.1.0",
+      "semantic-release": "^19.0.2",
+      "semantic-release-vsce": "^5.0.1",
+      "tslint": "^5.11.0",
+      "typescript": "^2.9.2",
+      "vsce": "^2.6.3",
+      "vscode": "^1.1.21"
+  },
+  "config": {
+      "commitizen": {
+          "path": "./node_modules/cz-conventional-changelog"
+      }
+  }
 }
