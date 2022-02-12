@@ -2,7 +2,7 @@
     "name": "convertwidth4novelwriter",
     "displayName": "Convert Width for novel writer",
     "description": "半角文字と全角文字を相互に変換する、Visual Studio Codeの機能拡張です。",
-    "version": "0.4.2",
+    "version": "0.0.0-semantic-release",
     "publisher": "haoblackj",
     "license": "MIT",
     "bugs": {
@@ -14,6 +14,7 @@
     "categories": [
         "Other"
     ],
+    "private": true,
     "icon": "images/icon.png",
     "activationEvents": [
         "onCommand:extension.widenAlphabet",
@@ -174,6 +175,7 @@
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
+            "semantic-release-vsce",
             "@semantic-release/github"
         ],
         "branches": [
@@ -204,27 +206,44 @@
             "assets": "*.vsix"
         }
     ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/changelog",
+        "@semantic-release/npm",
+        "@semantic-release/git"
+    ],
     "commitlint": {
-      "extends": [
-        "@commitlint/config-conventional"
-      ]
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
     },
     "husky": {
-      "hooks": {
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-      }
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
     },
     "devDependencies": {
         "@commitlint/cli": "^16.1.0",
         "@commitlint/config-conventional": "^16.0.0",
+        "@semantic-release/changelog": "^6.0.1",
+        "@semantic-release/npm": "^9.0.0",
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.70",
-        "husky": "^7.0.4",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "^3.3.0",
+        "cz-conventional-changelog-ja": "^0.0.2",
+        "husky": "^3.1.0",
         "semantic-release": "^19.0.2",
         "semantic-release-vsce": "^5.0.1",
         "tslint": "^5.11.0",
         "typescript": "^2.9.2",
         "vsce": "^2.6.3",
         "vscode": "^1.1.21"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
