@@ -255,7 +255,7 @@
       "cz-conventional-changelog-ja": "^0.0.2",
       "husky": "^7.0.4",
       "semantic-release": "^19.0.2",
-      "semantic-release-vsce": "^5.0.1",
+      "semantic-release-vsce": "^5.0.7",
       "tslint": "^5.11.0",
       "typescript": "^2.9.2",
       "vsce": "^2.6.7",
