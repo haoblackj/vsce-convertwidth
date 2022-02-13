@@ -3467,9 +3467,9 @@ sax@>=0.6.0:
   version "1.2.4"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz"
 
-semantic-release-vsce@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/semantic-release-vsce/-/semantic-release-vsce-5.0.1.tgz"
+semantic-release-vsce@^5.0.7:
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/semantic-release-vsce/-/semantic-release-vsce-5.0.7.tgz#387a36feab9367c1e58a3daa5e71464357301216"
   dependencies:
     "@semantic-release/error" "^3.0.0"
     execa "^5.0.0"
