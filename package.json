@@ -59,7 +59,7 @@
           },
           {
               "command": "extension.one-digit-narrowCharacter",
-              "title": "<!?> ひと桁の半角数字・記号を全角数字・記号に変換"
+              "title": "#A# ひと桁の半角数字・記号を全角数字・記号に変換"
           }
       ],
       "menus": {
