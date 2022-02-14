@@ -70,7 +70,7 @@ function offsetCharCode(editor: TextEditor, regEx:RegExp, offset:number): Promis
                 );
             }
         }).then(success => {
-            resolve();
+            resolve(true);
         });
     });
 }
