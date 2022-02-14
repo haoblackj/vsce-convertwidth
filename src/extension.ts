@@ -47,7 +47,7 @@ export function activate(context: ExtensionContext) {
       }
   });
     // ひと桁の半角文字を全角文字に変換
-    commands.registerCommand('extension.one-digit-narrowNumber-And-Punctuation', () => {
+    commands.registerCommand('extension.one-digit-narrowCharacter', () => {
       if (window.activeTextEditor) {
           offsetCharCode(window.activeTextEditor, /(?<![,-9－])([0-9])(?![,-9－])/g, 65248);
           offsetCharCode(window.activeTextEditor, /((?<![!?])([!?])(?![!?]))/g, 65248);
