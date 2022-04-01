@@ -9,7 +9,7 @@ jobs:
     name: Assign self to Pull Request
     if: ${{ github.actor != 'dependabot[bot]' }}
     env:
-      GITHUB_TOKEN: ${{ secrets.PERSONAL_API_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTOMATION_TOKEN }}
       PR_NODE_ID: ${{ github.event.pull_request.node_id }}
       USER_NODE_ID: ${{ github.event.pull_request.user.node_id }}
     runs-on: ubuntu-latest
