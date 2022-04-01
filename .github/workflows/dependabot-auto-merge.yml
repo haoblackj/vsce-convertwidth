@@ -4,6 +4,10 @@ on:
     types:
       - submitted
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   dependabot:
     runs-on: ubuntu-latest
