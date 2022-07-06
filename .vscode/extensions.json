@@ -2,6 +2,18 @@
 	// See http://go.microsoft.com/fwlink/?LinkId=827846
 	// for the documentation about the extensions.json format
 	"recommendations": [
-		"eg2.tslint"
-	]
+    "editorconfig.editorconfig",
+    "mhutchie.git-graph",
+    "donjayamanne.githistory",
+    "me-dutour-mathieu.vscode-github-actions",
+    "github.codespaces",
+    "eamodio.gitlens",
+    "ms-ceintl.vscode-language-pack-ja",
+    "pkief.material-icon-theme",
+    "redhat.vscode-yaml",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-ssh",
+    "ms-vscode-remote.remote-wsl",
+    "KnisterPeter.vscode-commitizen"
+  ]
 }
