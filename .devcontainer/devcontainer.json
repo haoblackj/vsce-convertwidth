@@ -16,6 +16,14 @@
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
+			"settings": {
+			  "dotfiles.repository": "https://github.com/haoblackj/dotfiles.git",
+			  "dotfiles.targetPath": "~/dotfiles",
+			  "dotfiles.installCommand": "install.sh",
+			  "git.experimental.mergeEditor": true,
+			  "update.showReleaseNotes": false,
+			  "terminal.integrated.defaultProfile.linux": "zsh"
+			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"dbaeumer.vscode-eslint",
