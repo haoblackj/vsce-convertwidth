@@ -56,7 +56,11 @@
           {
               "command": "extension.one-digit-narrowNumber",
               "title": "<!> ひと桁の半角数字を全角数字に変換"
-          }
+          },
+            {
+                "command": "extension.one-digit-narrowCharacter",
+                "title": "<!> ひと桁の半角英字を全角英字に変換"
+            }
       ],
       "menus": {
           "editor/context": [
