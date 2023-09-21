@@ -26,15 +26,19 @@
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint",
 				"EditorConfig.EditorConfig",
-				"mhutchie.git-graph",
-				"donjayamanne.githistory",
 				"me-dutour-mathieu.vscode-github-actions",
-				"redhat.vscode-yaml",
+				"GitHub.vscode-pull-request-github",
 				"KnisterPeter.vscode-commitizen",
+				"redhat.vscode-yaml",
 				"eamodio.gitlens",
-				"GitHub.vscode-pull-request-github"
+				"donjayamanne.githistory",
+				"mhutchie.git-graph",
+				"GitHub.github-vscode-theme",
+				"github.vscode-github-actions",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"GitHub.copilot-labs",
 			]
 		}
 	},
