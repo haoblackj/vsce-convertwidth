@@ -52,6 +52,12 @@ export function activate(context: ExtensionContext) {
             offsetCharCode(window.activeTextEditor, /(?<![a-zA-Z])[a-zA-Z](?![a-zA-Z])/g, 65248);
         }
     });
+    // 1文字の半角記号を全角記号に変換
+    commands.registerCommand('extension.one-digit-narrowPunctuation', () => {
+        if (window.activeTextEditor) {
+            offsetCharCode(window.activeTextEditor, /(?<![!?])[!?](?![!?])/g, 65248);
+        }
+    });
 }
 
 // 文字単位の変換
