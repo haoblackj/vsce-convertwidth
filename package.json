@@ -24,7 +24,7 @@
       "onCommand:extension.narrowNumber",
       "onCommand:extension.narrowPunctuation",
       "onCommand:extension.one-digit-narrowNumber",
-      "onCommand:extension.one-digit-narrowCharacter"
+      "onCommand:extension.one-digit-narrowAlphabet"
   ],
   "main": "./out/extension",
   "contributes": {
@@ -58,7 +58,7 @@
               "title": "<!> ひと桁の半角数字を全角数字に変換"
           },
             {
-                "command": "extension.one-digit-narrowCharacter",
+                "command": "extension.one-digit-narrowAlphabet",
                 "title": "<!> ひと桁の半角英字を全角英字に変換"
             }
       ],
@@ -168,7 +168,12 @@
                   "when": "resourceLangId == novel",
                   "command": "extension.one-digit-narrowNumber",
                   "group": "navigation"
-              }
+              },
+              {
+                "when": "resourceLangId == novel",
+                "command": "extension.one-digit-narrowAlphabet",
+                "group": "navigation"
+            }
           ]
       }
   },
