@@ -247,7 +247,7 @@
       "@commitlint/cli": "^17.4.4",
       "@commitlint/config-conventional": "^17.7.0",
       "@semantic-release/changelog": "^6.0.3",
-      "@semantic-release/npm": "^9.0.1",
+      "@semantic-release/npm": "^11.0.0",
       "@types/mocha": "^10.0.1",
       "@types/node": "^20.6.3",
       "commitizen": "^4.3.0",
